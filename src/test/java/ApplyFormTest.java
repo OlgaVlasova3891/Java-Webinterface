@@ -8,10 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.List;
-
-import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ApplyFormTest {
@@ -30,9 +26,8 @@ public class ApplyFormTest {
 
     }
     @Test
-     void shouldTestApplyForm()
-            throws InterruptedException {
-     driver.get("http://localhost:9999");
+     void shouldTestApplyForm() {
+        driver.get("http://localhost:9999");
         WebElement form = driver.findElement(By.cssSelector("form"));
 
         form.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Ольга Власова");
@@ -42,7 +37,6 @@ public class ApplyFormTest {
 
          WebElement text = driver.findElement(By.className("Success_successBlock__2L3Cw"));
         assertEquals("  Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.getText());
-        Thread.sleep(5000);
-    }
+        }
 
 }
